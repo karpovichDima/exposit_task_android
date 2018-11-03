@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="8dp">
+
+
+    <TextView
+        android:id="@+id/user_last_name_text_view"
+        style="@style/TextView.Primary.Header"
+        tools:text="@string/last_name" />
+
+    <TextView
+        android:id="@+id/user_name_text_view"
+        style="@style/TextView.Primary.Header"
+        android:layout_marginStart="@dimen/text_small_margin"
+        android:layout_toEndOf="@+id/user_last_name_text_view"
+        tools:text="@string/name" />
+
+
+    <TextView
+        android:id="@+id/user_email_text_view"
+        style="@style/TextView.Secondary"
+        android:layout_below="@+id/user_last_name_text_view"
+        android:layout_marginTop="@dimen/text_small_margin"
+        tools:text="@string/email" />
+
+    <TextView
+        android:id="@+id/user_gender_text_view"
+        style="@style/TextView.Secondary"
+        android:layout_below="@+id/user_email_text_view"
+        android:layout_marginTop="@dimen/text_small_margin"
+        tools:text="@string/gender" />
+
+    <TextView
+        android:id="@+id/user_age_text_view"
+        style="@style/TextView.Secondary"
+        android:layout_below="@+id/user_gender_text_view"
+        android:layout_marginTop="@dimen/text_small_margin"
+        tools:text="@string/age" />
+
+
+</RelativeLayout>
