@@ -1,9 +1,11 @@
-package comdfsgfrgtdg.example.karpo.task;
+package comdfsgfrgtdg.example.karpo.task.activity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+
+import comdfsgfrgtdg.example.karpo.task.R;
 
 public class MainActivity extends AppCompatActivity{
 

@@ -1,4 +1,4 @@
-package comdfsgfrgtdg.example.karpo.task;
+package comdfsgfrgtdg.example.karpo.task.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
