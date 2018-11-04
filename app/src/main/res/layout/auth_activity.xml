@@ -58,7 +58,8 @@
             android:layout_marginBottom="24dp"
             android:text="create profile"
             android:gravity="center"
-            android:textSize="16sp"/>
+            android:textSize="16sp"
+            android:onClick="startRegistrationActivity"/>
 
     </LinearLayout>
 </ScrollView>

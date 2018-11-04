@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp">
-            <EditText android:id="@+id/input_last_name"
+            <EditText android:id="@+id/input_last_name_reg"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Last name" />
@@ -34,7 +34,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp">
-            <EditText android:id="@+id/input_first_name"
+            <EditText android:id="@+id/input_first_name_reg"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="First name" />
@@ -45,7 +45,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp">
-            <EditText android:id="@+id/input_email"
+            <EditText android:id="@+id/input_email_reg"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
@@ -59,7 +59,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp">
-            <EditText android:id="@+id/input_password"
+            <EditText android:id="@+id/input_password_reg"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
@@ -71,17 +71,18 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp">
-            <EditText android:id="@+id/input_age"
+            <EditText android:id="@+id/input_age_reg"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Age"/>
         </android.support.design.widget.TextInputLayout>
 
     <LinearLayout
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingLeft="4dp">
+        android:paddingLeft="4dp"
+        android:gravity="center_horizontal">
 
 
 
@@ -89,10 +90,9 @@
             android:id="@+id/gender_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="left"
+            android:gravity="center_horizontal"
             android:text="Choose your gender"
-            android:layout_marginTop="4dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginTop="1dp"
             android:textSize="17sp"
             android:textStyle="bold" />
 
@@ -101,17 +101,18 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <RadioButton
-                android:id="@+id/radioButton_man"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingRight="8dp"
-                android:text="Man" />
-
-            <RadioButton
                 android:id="@+id/radioButton_woman"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:paddingRight="8dp"
                 android:text="Woman" />
+            <RadioButton
+                android:id="@+id/radioButton_man"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Man" />
+
+
         </RadioGroup>
     </LinearLayout>
 
@@ -121,8 +122,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:layout_marginBottom="12dp"
+            android:onClick="registration"
             android:padding="12dp"
-            android:text="Create"/>
+            android:text="Create" />
 
 
 

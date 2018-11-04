@@ -1,5 +1,6 @@
 package comdfsgfrgtdg.example.karpo.task.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -48,19 +49,6 @@ public class AuthActivity extends AppCompatActivity {
             }
         });
     }
-    public void registration(View v) {
-        String email = getEmail();
-        String password = getPassword();
-        mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()) {
-                    Toast.makeText(AuthActivity.this, "Success", Toast.LENGTH_SHORT).show();
-                } else
-                    Toast.makeText(AuthActivity.this, "Failed", Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
 
 
     private void checkAuthCurrentUser() {
@@ -73,9 +61,13 @@ public class AuthActivity extends AppCompatActivity {
                 } else {
                     // User is signed out
                 }
-
             }
         };
+    }
+
+    public void startRegistrationActivity(View v) {
+        Intent intent = new Intent(AuthActivity.this, RegistrationActivity.class);
+        startActivity(intent);
     }
 
     private String getEmail(){
