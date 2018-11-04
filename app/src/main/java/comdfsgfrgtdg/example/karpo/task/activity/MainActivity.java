@@ -19,4 +19,9 @@ public class MainActivity extends AppCompatActivity{
         Intent intent = new Intent(MainActivity.this, ListPostsActivity.class);
         startActivity(intent);
     }
+
+    public void onClickAuth(View v) {
+        Intent intent = new Intent(MainActivity.this, AuthActivity.class);
+        startActivity(intent);
+    }
 }
