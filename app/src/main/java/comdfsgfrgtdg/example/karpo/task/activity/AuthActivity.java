@@ -19,8 +19,6 @@ import comdfsgfrgtdg.example.karpo.task.R;
 public class AuthActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
-    private FirebaseAuth.AuthStateListener mAuthListener;
-
     private EditText editTextEmail;
     private EditText editTextPassword;
 
@@ -32,7 +30,6 @@ public class AuthActivity extends AppCompatActivity {
 
         editTextEmail = (EditText) findViewById(R.id.input_email);
         editTextPassword = (EditText) findViewById(R.id.input_password);
-
     }
 
     public void signIn(View v) {
@@ -43,6 +40,7 @@ public class AuthActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
                     Toast.makeText(AuthActivity.this, "Success", Toast.LENGTH_SHORT).show();
+                    startListMessageActivity();
                 } else {
                     Toast.makeText(AuthActivity.this, "Failed", Toast.LENGTH_SHORT).show();
                 }
@@ -50,9 +48,24 @@ public class AuthActivity extends AppCompatActivity {
         });
     }
 
+    public void startRegistrationActivity(View v) {
+        Intent intent = new Intent(AuthActivity.this, RegistrationActivity.class);
+        startActivity(intent);
+    }
+    public void startListMessageActivity() {
+        Intent intent = new Intent(AuthActivity.this, ListPostsActivity.class);
+        startActivity(intent);
+    }
+
+    private String getEmail(){
+        return editTextEmail.getText().toString();
+    }
+    private String getPassword(){
+        return editTextPassword.getText().toString();
+    }
 
     private void checkAuthCurrentUser() {
-        mAuthListener = new FirebaseAuth.AuthStateListener() {
+        FirebaseAuth.AuthStateListener mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
@@ -63,17 +76,5 @@ public class AuthActivity extends AppCompatActivity {
                 }
             }
         };
-    }
-
-    public void startRegistrationActivity(View v) {
-        Intent intent = new Intent(AuthActivity.this, RegistrationActivity.class);
-        startActivity(intent);
-    }
-
-    private String getEmail(){
-        return editTextEmail.getText().toString();
-    }
-    private String getPassword(){
-        return editTextPassword.getText().toString();
     }
 }

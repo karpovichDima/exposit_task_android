@@ -8,15 +8,13 @@ public class User {
     private String email;
     private String name;
     private String lastName;
-    private String password;
     private Gender gender;
     private int age;
 
-    public User(String email, String name, String lastName, String password, Gender gender, int age) {
+    public User(String email, String name, String lastName, Gender gender, int age) {
         this.email = email;
         this.name = name;
         this.lastName = lastName;
-        this.password = password;
         this.gender = gender;
         this.age = age;
     }
@@ -43,14 +41,6 @@ public class User {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public Gender getGender() {

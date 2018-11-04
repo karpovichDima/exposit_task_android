@@ -1,5 +1,6 @@
 package comdfsgfrgtdg.example.karpo.task.adapter;
 
+import android.annotation.SuppressLint;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -7,8 +8,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 import comdfsgfrgtdg.example.karpo.task.R;
@@ -16,8 +19,6 @@ import comdfsgfrgtdg.example.karpo.task.model.Post;
 
 public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder>{
 
-    private static final String BIG_DATE_FORMAT = "EEE MMM dd HH:mm:ss ZZZZ yyyy";
-    private static final String MONTH_DAY_DATE_FORMATE = "MMM d";
     private List<Post> posts = new ArrayList<>();
 
     @NonNull
@@ -41,16 +42,23 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
         private TextView message;
         private TextView date;
 
-        public PostViewHolder(@NonNull View itemView) {
+        PostViewHolder(@NonNull View itemView) {
             super(itemView);
             message = itemView.findViewById(R.id.post_text_view);
             date = itemView.findViewById(R.id.post_date_text_view);
         }
 
-        public void bind(Post post){
+        void bind(Post post){
             message.setText(post.getMessage());
-            date.setText(post.getDate() + "");
+            date.setText(convertDateToString(post.getDate()));
         }
+    }
+
+    @SuppressLint("SimpleDateFormat")
+    private String convertDateToString(Date date){
+        SimpleDateFormat dateFormat;
+        dateFormat = new SimpleDateFormat();
+        return dateFormat.format(date);
     }
 
     public void setItems(Collection<Post> posts){

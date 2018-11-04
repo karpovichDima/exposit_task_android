@@ -18,8 +18,6 @@ import comdfsgfrgtdg.example.karpo.task.R;
 public class RegistrationActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
-    private FirebaseAuth.AuthStateListener mAuthListener;
-
     private EditText editTextEmail;
     private EditText editTextPassword;
 
@@ -42,18 +40,22 @@ public class RegistrationActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
                     Toast.makeText(RegistrationActivity.this, "Success", Toast.LENGTH_SHORT).show();
+                    startListMessageActivity();
                 } else
                     Toast.makeText(RegistrationActivity.this, "Failed", Toast.LENGTH_SHORT).show();
             }
         });
     }
 
+    public void startListMessageActivity() {
+        Intent intent = new Intent(RegistrationActivity.this, ListPostsActivity.class);
+        startActivity(intent);
+    }
 
-
-    private String getEmail(){
+    private String getEmail() {
         return editTextEmail.getText().toString();
     }
-    private String getPassword(){
+    private String getPassword() {
         return editTextPassword.getText().toString();
     }
 }

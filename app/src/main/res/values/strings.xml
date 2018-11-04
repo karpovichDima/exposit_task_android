@@ -13,4 +13,9 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_navigation">NavigationActivity</string>
+    <string name="profile_directory">profile</string>
+    <string name="post_directory">posts</string>
+    <string name="text_directory">text</string>
+    <string name="date_directory">date</string>
+    <string name="read_value_exception">Failed to read value</string>
 </resources>
