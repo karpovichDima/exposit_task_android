@@ -1,5 +1,6 @@
 package comdfsgfrgtdg.example.karpo.task.activity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -39,10 +40,10 @@ public class AuthActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
-                    Toast.makeText(AuthActivity.this, "Success", Toast.LENGTH_SHORT).show();
-                    startListMessageActivity();
+                    Toast.makeText(AuthActivity.this, getString(R.string.response_success), Toast.LENGTH_SHORT).show();
+                    startNewActivity(AuthActivity.this, ListPostsActivity.class);
                 } else {
-                    Toast.makeText(AuthActivity.this, "Failed", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AuthActivity.this, getString(R.string.response_failed), Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -52,8 +53,8 @@ public class AuthActivity extends AppCompatActivity {
         Intent intent = new Intent(AuthActivity.this, RegistrationActivity.class);
         startActivity(intent);
     }
-    public void startListMessageActivity() {
-        Intent intent = new Intent(AuthActivity.this, ListPostsActivity.class);
+    private void startNewActivity(Activity currentActivity, Class openableActivity) {
+        Intent intent = new Intent(currentActivity, openableActivity);
         startActivity(intent);
     }
 

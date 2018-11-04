@@ -18,11 +18,12 @@
         </activity>
         <activity android:name=".activity.ProfileActivity" />
         <activity
-            android:name=".activity.ListPostsActivity"
+            android:name=".activity.DrawerMenuActivity"
             android:label="@string/title_activity_navigation"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".activity.AuthActivity" />
-        <activity android:name=".activity.RegistrationActivity"></activity>
+        <activity android:name=".activity.RegistrationActivity" />
+        <activity android:name=".activity.ListPostsActivity"></activity>
     </application>
 
 </manifest>

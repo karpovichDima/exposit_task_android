@@ -48,7 +48,7 @@ public class RegistrationActivity extends AppCompatActivity {
     }
 
     public void startListMessageActivity() {
-        Intent intent = new Intent(RegistrationActivity.this, ListPostsActivity.class);
+        Intent intent = new Intent(RegistrationActivity.this, DrawerMenuActivity.class);
         startActivity(intent);
     }
 
