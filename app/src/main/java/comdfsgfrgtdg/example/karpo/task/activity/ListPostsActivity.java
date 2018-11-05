@@ -29,6 +29,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
@@ -191,6 +192,7 @@ public class ListPostsActivity extends AppCompatActivity
     }
 
     private void loadPosts(List<Post> postsFromData) {
+        Collections.sort(postsFromData, Collections.<Post>reverseOrder());
         if (isTopOfTheStackListPost) postAdapter.setItems(postsFromData);
     }
 
@@ -208,6 +210,7 @@ public class ListPostsActivity extends AppCompatActivity
         isTopOfTheStackListPost = false;
         postAdapter.clearItems();
     }
+
 
     public void startAddPostActivity(View view) {
         startNewActivity(this, AddPostActivity.class);

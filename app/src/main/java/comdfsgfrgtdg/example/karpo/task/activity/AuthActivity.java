@@ -49,8 +49,6 @@ public class AuthActivity extends AppCompatActivity {
         });
     }
 
-
-
     public void startRegistrationActivity(View v) {
         Intent intent = new Intent(AuthActivity.this, RegistrationActivity.class);
         startActivity(intent);

@@ -2,7 +2,7 @@ package comdfsgfrgtdg.example.karpo.task.model;
 
 import java.util.Date;
 
-public class Post {
+public class Post implements Comparable<Post>{
 
     private String message;
     private Date date;
@@ -26,5 +26,12 @@ public class Post {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    @Override
+    public int compareTo(Post o) {
+        if (getDate() == null || o.getDate() == null)
+            return 0;
+        return getDate().compareTo(o.getDate());
     }
 }
