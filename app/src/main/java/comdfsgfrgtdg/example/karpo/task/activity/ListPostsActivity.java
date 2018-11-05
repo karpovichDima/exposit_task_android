@@ -206,7 +206,7 @@ public class ListPostsActivity extends AppCompatActivity
     public void onStop() {
         super.onStop();
         isTopOfTheStackListPost = false;
-        postAdapter.notifyDataSetChanged();
+        postAdapter.clearItems();
     }
     
 }

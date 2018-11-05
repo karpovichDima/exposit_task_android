@@ -36,7 +36,7 @@ public class AddPostActivity extends AppCompatActivity {
         setContentView(R.layout.to_add_message_activity);
 
         fieldInputMessage = (EditText) findViewById(R.id.field_message_text_view);
-        imageButton = (ImageView) findViewById(R.id.imageView);
+        imageButton = (ImageView) findViewById(R.id.imageButton);
         database = FirebaseDatabase.getInstance();
     }
 
@@ -49,6 +49,7 @@ public class AddPostActivity extends AppCompatActivity {
         myRef = database.getReference(currentUserUid + SEPARATOR + POST_DIRECTORY +
                                       SEPARATOR + generatedPostId + SEPARATOR + TEXT_DIRECTORY);
         myRef.setValue(fieldInputMessage.getText() + "");
+        finish();
     }
 
     private String getCurrentDateTime(){

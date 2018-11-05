@@ -17,6 +17,8 @@
 
     <style name="TextView.Secondary">
         <item name="android:textAppearance">@style/Text.Secondary</item>
+        <item name="android:textSize">12dp</item>
+
     </style>
 
     <style name="TextView.Primary">
