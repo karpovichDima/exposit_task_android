@@ -18,4 +18,6 @@
     <string name="text_directory">text</string>
     <string name="date_directory">date</string>
     <string name="read_value_exception">Failed to read value</string>
+    <string name="postId">post_</string>
+    <string name="separator">/</string>
 </resources>

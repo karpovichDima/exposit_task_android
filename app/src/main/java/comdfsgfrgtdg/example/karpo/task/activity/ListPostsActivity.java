@@ -41,23 +41,33 @@ import static android.app.PendingIntent.getActivity;
 public class ListPostsActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    static boolean isTopOfTheStackListPost = false;
     static String POST_DIRECTORY;
+    static String SEPARATOR;
+    static String DATE_DIRECTORY;
+    static String TEXT_DIRECTORY;
     static FirebaseAuth mAuth;
+    static boolean isTopOfTheStackListPost = false;
     private PostAdapter postAdapter;
     private Toolbar toolbar;
     private GenericTypeIndicator<String> genericString;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.list_posts_user);
-        POST_DIRECTORY = getResources().getString(R.string.post_directory);
+
+        initConstants();
         mAuth = FirebaseAuth.getInstance();
         initToolbar();
         initNavigationDrawer(toolbar);
         initRecyclerView();
+    }
+
+    private void initConstants() {
+        POST_DIRECTORY = getResources().getString(R.string.post_directory);
+        SEPARATOR = getString(R.string.separator);
+        DATE_DIRECTORY = getString(R.string.date_directory);
+        TEXT_DIRECTORY = getString(R.string.text_directory);
     }
 
     private void readFromDB() {
@@ -66,7 +76,6 @@ public class ListPostsActivity extends AppCompatActivity
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
                 List<Post> postsFromData = createPostsFromData(dataSnapshot);
                 loadPosts(postsFromData);
             }
@@ -94,8 +103,8 @@ public class ListPostsActivity extends AppCompatActivity
         genericString = getGenericString();
         ArrayList<Post> posts = new ArrayList<>();
         for (DataSnapshot item : children){
-            String message = item.child(getString(R.string.text_directory)).getValue(genericString);
-            String date = item.child(getString(R.string.date_directory)).getValue(genericString);
+            String message = item.child(TEXT_DIRECTORY).getValue(genericString);
+            String date = item.child(DATE_DIRECTORY).getValue(genericString);
             Post post = new Post(message, convertStringToDate(date));
             posts.add(post);
         }
@@ -170,7 +179,6 @@ public class ListPostsActivity extends AppCompatActivity
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
-
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
     }
@@ -178,7 +186,6 @@ public class ListPostsActivity extends AppCompatActivity
     private void initRecyclerView() {
         RecyclerView postsRecyclerView = findViewById(R.id.posts_recycler_view);
         postsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-
         postAdapter = new PostAdapter();
         postsRecyclerView.setAdapter(postAdapter);
     }
@@ -199,6 +206,7 @@ public class ListPostsActivity extends AppCompatActivity
     public void onStop() {
         super.onStop();
         isTopOfTheStackListPost = false;
+        postAdapter.notifyDataSetChanged();
     }
     
 }
