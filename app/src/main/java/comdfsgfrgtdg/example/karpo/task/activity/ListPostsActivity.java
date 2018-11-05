@@ -15,6 +15,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -81,7 +82,6 @@ public class ListPostsActivity extends AppCompatActivity
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(ListPostsActivity.this, getString(R.string.read_value_exception), Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -132,12 +132,7 @@ public class ListPostsActivity extends AppCompatActivity
         } else {
             super.onBackPressed();
         }
-    }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.activity_navigation_drawer, menu);
-        return true;
     }
 
     @Override
@@ -154,6 +149,7 @@ public class ListPostsActivity extends AppCompatActivity
                 startNewActivity(this, AddPostActivity.class);
                 break;
             case R.id.nav_logout:
+                logout();
                 startNewActivity(this, AuthActivity.class);
                 break;
         }
@@ -183,6 +179,10 @@ public class ListPostsActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
     }
 
+    private void logout(){
+        FirebaseAuth.getInstance().signOut();
+    }
+
     private void initRecyclerView() {
         RecyclerView postsRecyclerView = findViewById(R.id.posts_recycler_view);
         postsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -208,5 +208,8 @@ public class ListPostsActivity extends AppCompatActivity
         isTopOfTheStackListPost = false;
         postAdapter.clearItems();
     }
-    
+
+    public void startAddPostActivity(View view) {
+        startNewActivity(this, AddPostActivity.class);
+    }
 }

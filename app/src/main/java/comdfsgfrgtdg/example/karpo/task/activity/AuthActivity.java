@@ -3,6 +3,8 @@ package comdfsgfrgtdg.example.karpo.task.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
@@ -47,6 +49,8 @@ public class AuthActivity extends AppCompatActivity {
         });
     }
 
+
+
     public void startRegistrationActivity(View v) {
         Intent intent = new Intent(AuthActivity.this, RegistrationActivity.class);
         startActivity(intent);
@@ -61,5 +65,11 @@ public class AuthActivity extends AppCompatActivity {
     }
     private String getPassword(){
         return editTextPassword.getText().toString();
+    }
+
+    @Override
+    public void onBackPressed() {
+        finish();
+        this.finishAffinity();
     }
 }

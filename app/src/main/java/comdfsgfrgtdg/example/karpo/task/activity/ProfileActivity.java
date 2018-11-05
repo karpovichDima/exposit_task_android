@@ -56,7 +56,6 @@ public class ProfileActivity extends AppCompatActivity {
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(ProfileActivity.this, getString(R.string.read_value_exception), Toast.LENGTH_SHORT).show();
             }
         });
     }
