@@ -1,6 +1,8 @@
 package comdfsgfrgtdg.example.karpo.task.activity;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
@@ -136,17 +138,26 @@ public class ListPostsActivity extends AppCompatActivity
         int id = item.getItemId();
         switch (id) {
             case R.id.nav_profile:
+                startNewActivity(this, ProfileActivity.class);
                 break;
             case R.id.nav_home:
+                startNewActivity(this, ListPostsActivity.class);
                 break;
             case R.id.nav_add_message:
+                startNewActivity(this, AddPostActivity.class);
                 break;
             case R.id.nav_logout:
+                startNewActivity(this, AuthActivity.class);
                 break;
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void startNewActivity(Activity currentActivity, Class openableClass) {
+        Intent intent = new Intent(currentActivity, openableClass);
+        startActivity(intent);
     }
 
     private void initToolbar() {
