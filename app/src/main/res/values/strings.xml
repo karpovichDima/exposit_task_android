@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">exposit_android_task</string>
-    <string name="name">name</string>
     <string name="last_name">last name</string>
     <string name="email">email</string>
     <string name="gender">gender</string>
@@ -13,11 +12,15 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_navigation">NavigationActivity</string>
-    <string name="profile_directory">profile</string>
     <string name="post_directory">posts</string>
     <string name="text_directory">text</string>
     <string name="date_directory">date</string>
     <string name="read_value_exception">Failed to read value</string>
     <string name="postId">post_</string>
     <string name="separator">/</string>
+    <string name="profile_directory">profile</string>
+    <string name="age_directory">Age</string>
+    <string name="gender_directory">Gender</string>
+    <string name="last_name_directory">lastName</string>
+    <string name="name">name</string>
 </resources>

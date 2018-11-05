@@ -27,7 +27,6 @@ public class AuthActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.auth_activity);
         mAuth = FirebaseAuth.getInstance();
-
         editTextEmail = (EditText) findViewById(R.id.input_email);
         editTextPassword = (EditText) findViewById(R.id.input_password);
     }
@@ -62,19 +61,5 @@ public class AuthActivity extends AppCompatActivity {
     }
     private String getPassword(){
         return editTextPassword.getText().toString();
-    }
-
-    private void checkAuthCurrentUser() {
-        FirebaseAuth.AuthStateListener mAuthListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user = firebaseAuth.getCurrentUser();
-                if (user != null) {
-                    // User is signed in
-                } else {
-                    // User is signed out
-                }
-            }
-        };
     }
 }

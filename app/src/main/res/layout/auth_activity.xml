@@ -48,18 +48,21 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:layout_marginBottom="12dp"
-            android:padding="12dp"
+            android:background="@drawable/side_nav_bar"
             android:onClick="signIn"
-            android:text="Login" />
+            android:padding="12dp"
+            android:text="Login"
+            android:textColor="@color/common_google_signin_btn_text_dark_default"
+            android:textSize="18sp" />
 
-        <TextView android:id="@+id/link_signup"
+        <Button
+            android:id="@+id/signup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
             android:text="create profile"
+            android:textSize="10sp"
             android:gravity="center"
-            android:textSize="16sp"
+            android:layout_marginBottom="24dp"
             android:onClick="startRegistrationActivity"/>
-
     </LinearLayout>
 </ScrollView>

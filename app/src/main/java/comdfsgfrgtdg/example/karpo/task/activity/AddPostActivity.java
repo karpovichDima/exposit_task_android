@@ -40,6 +40,8 @@ public class AddPostActivity extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
     }
 
+
+
     public void sendMessage(View v) {
         String currentUserUid = getCurrentUserUid();
         String generatedPostId = generateIdForPost();
