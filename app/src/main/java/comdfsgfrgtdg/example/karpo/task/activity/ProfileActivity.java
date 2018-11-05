@@ -64,19 +64,19 @@ public class ProfileActivity extends AppCompatActivity {
 
     public User createUserFromData(DataSnapshot dataSnapshot) {
         String uidCurrentUser = getCurrentUserUid();
-        DataSnapshot profileDirectory = dataSnapshot.child(uidCurrentUser).child(PROFILE_DIRECTORY);
+        DataSnapshot profileDirectory = dataSnapshot.child(PROFILE_DIRECTORY);
 
         String lastName = (String) profileDirectory.child("lastName").getValue();
         String name = (String) profileDirectory.child("name").getValue();
         String gender = (String) profileDirectory.child("Gender").getValue();
-        Long age = (Long) profileDirectory.child("Age").getValue();
+        String age = (String) profileDirectory.child("Age").getValue();
         String email = getCurrentUserEmail();
 
-        return new User(email, name, lastName, gender, convertLongToInt(age));
+        return new User(email, name, lastName, gender, convertStringToInt(age));
     }
 
-    private int convertLongToInt(Long value) {
-        return value.intValue();
+    private int convertStringToInt(String value) {
+        return Integer.parseInt(value);
     }
 
     private String getCurrentUserUid() {

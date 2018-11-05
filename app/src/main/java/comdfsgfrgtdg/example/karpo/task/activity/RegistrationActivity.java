@@ -42,21 +42,21 @@ public class RegistrationActivity extends AppCompatActivity {
     private EditText editTextAge;
     private RadioGroup editTextRadioGroup;
     private FirebaseDatabase database;
-    private String gender;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.registration_activity);
+
         mAuth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
         initLayoutComponent();
         initConstants();
+
         final Button button = (Button) findViewById(R.id.btn_login_reg);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 registration();
-//                test();
             }
         });
     }
@@ -81,44 +81,16 @@ public class RegistrationActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
-                    setDataProfileCreatedUser(email, password);
+                    mAuth.signInWithEmailAndPassword(email, password);
                     String currentUserUid = mAuth.getCurrentUser().getUid();
                     settingProfile(currentUserUid);
                     setFirstMessage(currentUserUid);
-                    startListMessageActivity();
                     Toast.makeText(RegistrationActivity.this, "Success registration", Toast.LENGTH_SHORT).show();
                     startListMessageActivity();
                 } else
                     Toast.makeText(RegistrationActivity.this, "Failed registration", Toast.LENGTH_SHORT).show();
             }
         });
-    }
-
-    private void setDataProfileCreatedUser(String email, String password) {
-        mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()) {
-                    ///////////
-                }
-            }
-        });
-    }
-
-    private void test() {
-        String currentUserUid = mAuth.getCurrentUser().getUid();
-        DatabaseReference myRef = database.getReference(currentUserUid + SEPARATOR + PROFILE_DIRECTORY + SEPARATOR +
-                getString(R.string.age_directory));
-        myRef.setValue(editTextAge.getText() + "");
-        myRef = database.getReference(currentUserUid + SEPARATOR + PROFILE_DIRECTORY + SEPARATOR +
-                getString(R.string.gender_directory));
-        myRef.setValue(gender);
-        myRef = database.getReference(currentUserUid + SEPARATOR + PROFILE_DIRECTORY + SEPARATOR +
-                getString(R.string.last_name_directory));
-        myRef.setValue(editTextLastName.getText() + "");
-        myRef = database.getReference(currentUserUid + SEPARATOR + PROFILE_DIRECTORY + SEPARATOR +
-                getString(R.string.name));
-        myRef.setValue(editTextName.getText() + "");
     }
 
     private void settingProfile(String currentUserUid) {
@@ -176,7 +148,7 @@ public class RegistrationActivity extends AppCompatActivity {
     public String getSelectGender() {
         int selectedId = editTextRadioGroup.getCheckedRadioButtonId();
         RadioButton radioGender = (RadioButton) findViewById(selectedId);
-        gender = radioGender.getText() + "";
+        String gender = radioGender.getText() + "";
         return gender;
     }
 
