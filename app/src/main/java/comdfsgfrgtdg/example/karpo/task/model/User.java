@@ -1,17 +1,16 @@
 package comdfsgfrgtdg.example.karpo.task.model;
 
 
-import comdfsgfrgtdg.example.karpo.task.model.type.Gender;
 
 public class User {
 
     private String email;
     private String name;
     private String lastName;
-    private Gender gender;
+    private String gender;
     private int age;
 
-    public User(String email, String name, String lastName, Gender gender, int age) {
+    public User(String email, String name, String lastName, String gender, int age) {
         this.email = email;
         this.name = name;
         this.lastName = lastName;
@@ -43,11 +42,11 @@ public class User {
         this.lastName = lastName;
     }
 
-    public Gender getGender() {
+    public String getGender() {
         return gender;
     }
 
-    public void setGender(Gender gender) {
+    public void setGender(String gender) {
         this.gender = gender;
     }
 

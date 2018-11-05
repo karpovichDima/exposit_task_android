@@ -28,8 +28,6 @@ import com.google.firebase.database.ValueEventListener;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
@@ -42,10 +40,9 @@ public class ListPostsActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     public static String POST_DIRECTORY;
-    public static String PROFILE_DIRECTORY;
+    public static FirebaseAuth mAuth;
     private PostAdapter postAdapter;
     private Toolbar toolbar;
-    private FirebaseAuth mAuth;
     private GenericTypeIndicator<String> genericString;
 
 
@@ -54,7 +51,6 @@ public class ListPostsActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.list_posts_user);
 
-        PROFILE_DIRECTORY = getResources().getString(R.string.profile_directory);
         POST_DIRECTORY = getResources().getString(R.string.post_directory);
         mAuth = FirebaseAuth.getInstance();
         initToolbar();

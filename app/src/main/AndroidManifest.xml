@@ -23,7 +23,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".activity.AuthActivity" />
         <activity android:name=".activity.RegistrationActivity" />
-        <activity android:name=".activity.AddPostActivity"></activity>
+        <activity android:name=".activity.AddPostActivity" />
     </application>
 
 </manifest>
