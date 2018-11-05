@@ -5,38 +5,36 @@
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="24dp"
+        android:orientation="vertical"
         android:paddingLeft="24dp"
+        android:paddingTop="24dp"
         android:paddingRight="24dp">
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingRight="12dp">
-
-        <EditText
-            android:id="@+id/field_message_text_view"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:layout_weight="3"
-            android:hint="Type you message"
-            android:layout_marginRight="@dimen/text_small_margin"
-            android:inputType="textMultiLine" />
+            android:orientation="horizontal"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp">
 
-        <ImageButton
-            android:id="@+id/imageButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="sendMessage"
-            app:srcCompat="@drawable/ic_sent_message_logo" />
+            <EditText
+                android:id="@+id/field_message_text_view"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/text_small_margin"
+                android:layout_weight="3"
+                android:ems="10"
+                android:hint="@string/type_you_message_hint"
+                android:inputType="textMultiLine" />
 
-
-    </LinearLayout>
-
+            <ImageButton
+                android:id="@+id/imageButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="sendMessage"
+                app:srcCompat="@drawable/ic_sent_message_logo" />
+        </LinearLayout>
     </LinearLayout>
 </ScrollView>

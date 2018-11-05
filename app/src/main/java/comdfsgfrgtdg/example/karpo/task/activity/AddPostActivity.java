@@ -3,9 +3,11 @@ package comdfsgfrgtdg.example.karpo.task.activity;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -43,6 +45,12 @@ public class AddPostActivity extends AppCompatActivity {
 
 
     public void sendMessage(View v) {
+        boolean lessThanHundred = isLessThanHundred(fieldInputMessage.getText());
+        if (!lessThanHundred){
+            Toast.makeText(AddPostActivity.this, getString(R.string.text_very_big_exception) + getString(R.string.сharacters), Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         String currentUserUid = getCurrentUserUid();
         String generatedPostId = generateIdForPost();
         myRef = database.getReference(currentUserUid + SEPARATOR + POST_DIRECTORY +
@@ -52,6 +60,12 @@ public class AddPostActivity extends AppCompatActivity {
                                       SEPARATOR + generatedPostId + SEPARATOR + TEXT_DIRECTORY);
         myRef.setValue(fieldInputMessage.getText() + "");
         finish();
+    }
+
+    private boolean isLessThanHundred(Editable text) {
+        int length = text.length();
+        if (length > 100) return false;
+        return true;
     }
 
     private String getCurrentDateTime(){

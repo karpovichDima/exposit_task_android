@@ -23,4 +23,26 @@
     <string name="gender_directory">Gender</string>
     <string name="last_name_directory">lastName</string>
     <string name="name">name</string>
+    <string name="login_example">login</string>
+    <string name="email_hint">Email</string>
+    <string name="login_hint">Login</string>
+    <string name="create_profile_text_button">create profile</string>
+    <string name="password_example">password</string>
+    <string name="last_name_hint">Last name</string>
+    <string name="this_could_be_your_photo">This could be your photo.</string>
+    <string name="first_name_рште">First name</string>
+    <string name="password_hint">Password</string>
+    <string name="age_hint">Age</string>
+    <string name="choose_your_gender_hint">Choose your gender</string>
+    <string name="woman_text">Woman</string>
+    <string name="man_text">Man</string>
+    <string name="create_user_hint">Create</string>
+    <string name="type_you_message_hint">Type you message</string>
+    <string name="text_very_big_exception">The number of characters should not be more than</string>
+    <string name="сharacters">100</string>
+    <string name="text_login_exception">Login or password not filled</string>
+    <string name="success_hint">Success</string>
+    <string name="failed_hint">Failed</string>
+    <string name="empty_field_exception">Fill in all the fields</string>
+    <string name="not_number_exception">In the age field is not a number</string>
 </resources>

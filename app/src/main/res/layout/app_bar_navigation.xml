@@ -29,13 +29,11 @@
         </android.support.v7.widget.RecyclerView>
     </LinearLayout>
 
-
     <android.support.design.widget.FloatingActionButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="16dp"
-        app:layout_anchorGravity="bottom|right|end"
-        android:onClick="startAddPostActivity"/>
-
+        android:onClick="startAddPostActivity"
+        app:layout_anchorGravity="bottom|right|end" />
 </android.support.design.widget.CoordinatorLayout>
