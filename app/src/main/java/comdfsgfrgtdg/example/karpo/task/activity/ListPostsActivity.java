@@ -36,11 +36,14 @@ import comdfsgfrgtdg.example.karpo.task.R;
 import comdfsgfrgtdg.example.karpo.task.adapter.PostAdapter;
 import comdfsgfrgtdg.example.karpo.task.model.Post;
 
+import static android.app.PendingIntent.getActivity;
+
 public class ListPostsActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    public static String POST_DIRECTORY;
-    public static FirebaseAuth mAuth;
+    static boolean isTopOfTheStackListPost = false;
+    static String POST_DIRECTORY;
+    static FirebaseAuth mAuth;
     private PostAdapter postAdapter;
     private Toolbar toolbar;
     private GenericTypeIndicator<String> genericString;
@@ -50,13 +53,11 @@ public class ListPostsActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.list_posts_user);
-
         POST_DIRECTORY = getResources().getString(R.string.post_directory);
         mAuth = FirebaseAuth.getInstance();
         initToolbar();
         initNavigationDrawer(toolbar);
         initRecyclerView();
-        if (mAuth != null) readFromDB();
     }
 
     private void readFromDB() {
@@ -65,6 +66,7 @@ public class ListPostsActivity extends AppCompatActivity
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
                 List<Post> postsFromData = createPostsFromData(dataSnapshot);
                 loadPosts(postsFromData);
             }
@@ -182,6 +184,21 @@ public class ListPostsActivity extends AppCompatActivity
     }
 
     private void loadPosts(List<Post> postsFromData) {
-        postAdapter.setItems(postsFromData);
+        if (isTopOfTheStackListPost) postAdapter.setItems(postsFromData);
     }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        postAdapter.clearItems();
+        isTopOfTheStackListPost = true;
+        readFromDB();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        isTopOfTheStackListPost = false;
+    }
+    
 }

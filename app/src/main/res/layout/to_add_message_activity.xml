@@ -33,6 +33,7 @@
             android:layout_width="44dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:onClick="sendMessage"
             app:srcCompat="@drawable/send_message_logo" />
 
 

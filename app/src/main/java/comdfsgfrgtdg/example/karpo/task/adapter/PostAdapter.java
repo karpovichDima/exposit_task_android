@@ -17,7 +17,7 @@ import java.util.List;
 import comdfsgfrgtdg.example.karpo.task.R;
 import comdfsgfrgtdg.example.karpo.task.model.Post;
 
-public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder>{
+public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder> {
 
     private List<Post> posts = new ArrayList<>();
 
@@ -48,26 +48,29 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
             date = itemView.findViewById(R.id.post_date_text_view);
         }
 
-        void bind(Post post){
+        void bind(Post post) {
             message.setText(post.getMessage());
             date.setText(convertDateToString(post.getDate()));
         }
     }
 
     @SuppressLint("SimpleDateFormat")
-    private String convertDateToString(Date date){
+    private String convertDateToString(Date date) {
         SimpleDateFormat dateFormat;
         dateFormat = new SimpleDateFormat();
         return dateFormat.format(date);
     }
 
-    public void setItems(Collection<Post> posts){
+    public void setItems(Collection<Post> posts) {
         this.posts.addAll(posts);
         notifyDataSetChanged();
     }
 
-    public void clearItems(){
-        this.posts.clear();
-        notifyDataSetChanged();
+    public void clearItems() {
+        if (this.posts.size() != 0) {
+            this.posts.clear();
+            notifyDataSetChanged();
+        }
     }
+
 }

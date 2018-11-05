@@ -21,6 +21,7 @@ public class ProfileActivity extends AppCompatActivity {
 
     public static String PROFILE_DIRECTORY;
 
+    static boolean isTopOfTheStackProfile = false;
     private TextView name;
     private TextView lastName;
     private TextView email;
@@ -33,9 +34,7 @@ public class ProfileActivity extends AppCompatActivity {
         setContentView(R.layout.profile_activity);
 
         initComponentLayout();
-
         PROFILE_DIRECTORY = getResources().getString(R.string.profile_directory);
-        readFromDB();
     }
 
     private void initComponentLayout() {
@@ -94,5 +93,18 @@ public class ProfileActivity extends AppCompatActivity {
         email.setText(user.getEmail());
         gender.setText(user.getGender());
         age.setText(user.getAge() + "");
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        isTopOfTheStackProfile = true;
+        readFromDB();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        isTopOfTheStackProfile = false;
     }
 }
