@@ -127,7 +127,7 @@ public class ListPostsActivity extends AppCompatActivity
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.navigation, menu);
+        getMenuInflater().inflate(R.menu.activity_navigation_drawer, menu);
         return true;
     }
 
