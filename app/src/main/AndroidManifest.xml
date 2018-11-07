@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".activity.AuthActivity"
+            android:name=".view.AuthActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,18 +19,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.ProfileActivity"
+            android:name=".view.RegistrationActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.ListPostsActivity"
-            android:label="@string/title_activity_navigation"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".activity.RegistrationActivity"
+            android:name=".view.ProfileActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.AddPostActivity"
+            android:name=".view.ListPostsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.AddPostActivity"
             android:screenOrientation="portrait" />
     </application>
 

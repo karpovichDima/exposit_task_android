@@ -1,7 +1,5 @@
 package comdfsgfrgtdg.example.karpo.task.model;
 
-
-
 public class User {
 
     private String email;

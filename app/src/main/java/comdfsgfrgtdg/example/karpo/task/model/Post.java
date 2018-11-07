@@ -2,6 +2,8 @@ package comdfsgfrgtdg.example.karpo.task.model;
 
 import java.util.Date;
 
+import javax.inject.Inject;
+
 public class Post implements Comparable<Post>{
 
     private String message;
@@ -11,6 +13,8 @@ public class Post implements Comparable<Post>{
         this.message = message;
         this.date = date;
     }
+
+    Post(){}
 
     public String getMessage() {
         return message;
