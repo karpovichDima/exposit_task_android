@@ -78,7 +78,7 @@ public class RegistrationActivity extends AppCompatActivity implements Registrat
         }
         return "";
     }
-
+//
     @Override
     public String getAgeText() {
         return editTextAge.getText().toString();
